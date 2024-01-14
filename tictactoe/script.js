@@ -5,6 +5,8 @@ const ticTacToe = (function () {
     [null, null, null],
   ];
 
+  let players = {};
+
   const gameBoard = {
     getBoard: () => board,
     setBoard: (newBoard) => {
@@ -18,13 +20,29 @@ const ticTacToe = (function () {
 
   const displayController = {
     displayBoard: () => {
-      console.log(gameBoard.getBoard());
+      const board = gameBoard.getBoard();
+      console.log(board);
+      for (let x = 0; x < board.length; x++) {
+        for (let y = 0; y < board[x].length; y++) {
+          const cell = document.getElementById(`cell${x}${y}`);
+          cell.innerHTML = board[x][y] || ""; // Update the cell's content
+          if (board[x][y] == null) {
+            cell.onclick = () => {
+              gameController.makeMove(players["x"], [x, y]);
+            };
+          } else {
+            cell.onclick = null; // Remove the onclick event from filled cells
+          }
+        }
+      }
     },
   };
 
   const gameController = {
     createPlayer: (name, symbol) => {
-      return Player(name, symbol);
+      const player = Player(name, symbol);
+      players[symbol] = player;
+      return player;
     },
     makeMove: (player, position) => {
       const [row, col] = position;
@@ -36,11 +54,30 @@ const ticTacToe = (function () {
       newBoard[row][col] = player.symbol;
       gameBoard.setBoard(newBoard);
       displayController.displayBoard();
-      checkWin: () => {
-        const board = gameBoard.getBoard();
-        if (condition) {
+      gameController.checkWin();
+    },
+    checkWin: () => {
+      const board = gameBoard.getBoard();
+      const lines = [
+        [board[0][0], board[0][1], board[0][2]],
+        [board[1][0], board[1][1], board[1][2]],
+        [board[2][0], board[2][1], board[2][2]],
+        [board[0][0], board[1][0], board[2][0]],
+        [board[0][1], board[1][1], board[2][1]],
+        [board[0][2], board[1][2], board[2][2]],
+        [board[0][0], board[1][1], board[2][2]],
+        [board[0][2], board[1][1], board[2][0]],
+      ];
+      for (let line of lines) {
+        if (line.every((value) => value === "x")) {
+          console.log(`Player: ${players["x"].player} won`);
+          return "x";
+        } else if (line.every((value) => value === "o")) {
+          console.log(`Player: ${players["o"].player} won`);
+          return "o";
         }
-      };
+      }
+      return null;
     },
   };
 
@@ -51,7 +88,6 @@ let game = ticTacToe;
 let player1 = game.gameController.createPlayer("berkay", "x");
 let player2 = game.gameController.createPlayer("max", "o");
 
-game.gameController.makeMove(player1, [0, 0]);
-game.gameController.makeMove(player2, [1, 0]);
-game.gameController.makeMove(player2, [1, 0]);
-game.gameController.makeMove(player2, [1, 2]);
+console.log("sasS");
+game.displayController.displayBoard();
+//game.gameController.makeMove(player1, [0, 0]);
