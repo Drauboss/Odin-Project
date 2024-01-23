@@ -86,12 +86,31 @@ class TodoListProject {
   }
 }
 
+/**
+ * Represents a todo model.
+ * @namespace todoModel
+ */
 const todoModel = {
   todoList: new TodoList(),
+  /**
+   *
+   * @returns {TodoList} the todo list
+   * @memberof todoModel
+   * @description Returns the todo list.
+   *
+   */
   getTodoList() {
     return this.todoList;
   },
 
+  /**
+   *
+   * @param {string} projectName
+   * @returns {TodoListProject} the todo list project
+   * @memberof todoModel
+   * @description Creates a todo list project and adds it to the todo list.
+   *
+   */
   createTodoListProject(projectName) {
     const todoListProject = new TodoListProject(projectName);
     this.todoList.addTodoProject(todoListProject);
@@ -100,6 +119,18 @@ const todoModel = {
   deleteTodoListProject() {},
   changeTodoListProject() {},
 
+  /**
+   *
+   * @param {string} title
+   * @param {string} description
+   * @param {string} dueDate
+   * @param {string} priority
+   * @param {TodoListProject} project
+   * @memberof todoModel
+   * @description Creates a todo element and adds it to the todo list project.
+   * @returns {TodoElement} the todo element
+   *
+   */
   createTodoElement(title, description, dueDate, priority, project) {
     const todoElement = new TodoElement(title, description, dueDate, priority);
 
@@ -108,8 +139,18 @@ const todoModel = {
   },
   deleteTodoElement() {},
   changeTodoElement() {},
-  addTodoToProject(todoElement, todoList) {
-    todoList.todoElements.push(todoElement);
+
+  /**
+   *
+   * @param {TodoElement} todoElement
+   * @param {TodoListProject} todoListProject
+   * @memberof todoModel
+   * @description Adds a todo element to a todo list project.
+   * @returns {void}
+   *
+   */
+  addTodoToProject(todoElement, todoListProject) {
+    todoListProject.todoElements.push(todoElement);
   },
 };
 

@@ -4,6 +4,10 @@
  *
  */
 
+/**
+ * @namespace todoView
+ * @description Represents the view for a todo list.
+ */
 const todoView = {
   body: document.querySelector("body"),
   todoList: document.createElement("div"),
@@ -16,6 +20,14 @@ const todoView = {
     this.body.appendChild(this.todoList);
   },
   //TODO: add the remaining parameters of a todo element
+  /**
+   *
+   * @param {TodoListProject} todoListProject
+   * @memberof todoView
+   * @description renders all the todo elements of a todo list project
+   * @returns {void}
+   *
+   */
   renderTodoElements(todoListProject) {
     //get the dom element for the todo list project
     const todoListElement_dom = document.getElementById(
@@ -37,6 +49,15 @@ const todoView = {
       todoListElement_dom.appendChild(todoElement_dom);
     });
   },
+
+  /**
+   *
+   * @param {TodoList} todoListObject
+   * @memberof todoView
+   * @description renders all the todo list projects
+   * @returns {void}
+   *
+   */
   renderTodoProjects(todoListObject) {
     //get the dom element for all the todo list projects
     const todoList_dom = document.getElementById("todo-list");
