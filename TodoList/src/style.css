@@ -1,0 +1,42 @@
+body {
+  background-color: rgb(194, 194, 194);
+}
+
+.todo-list-project {
+  background-color: rgb(238, 108, 22);
+  border-radius: 0.5rem;
+  box-shadow: 0 0 0.5rem rgb(0, 0, 0);
+  margin: 1rem auto;
+  width: 50%;
+  max-width: 50rem;
+  min-width: 20rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.todo-list-project-title {
+  color: rgb(255, 255, 255);
+  font-size: 2rem;
+  text-align: center;
+  margin: 0;
+  padding: 1rem;
+}
+
+.completed {
+  text-decoration: line-through;
+  color: green;
+}
+
+.uncompleted {
+  text-decoration: none;
+  color: rgb(250, 250, 250);
+}
+
+.todo-list {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}

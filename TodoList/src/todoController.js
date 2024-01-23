@@ -19,10 +19,8 @@ const todoController = {
     // Call the function to generate test data
     this.generateTestData();
 
+    // Render the todo list projects
     todoView.renderTodoProjects(todoModel.getTodoList());
-
-    console.log(JSON.stringify(project));
-    console.log(JSON.stringify(todoModel.getTodoList()));
   },
   generateTestData() {
     const projects = ["Project 1", "Project 2", "Project 3"];
@@ -38,7 +36,13 @@ const todoController = {
         const prio = priorities[Math.floor(Math.random() * priorities.length)];
         const date = dates[Math.floor(Math.random() * dates.length)];
 
-        todoModel.createTodoElement(title, desc, date, prio, newProject);
+        const todolement = todoModel.createTodoElement(
+          title,
+          desc,
+          date,
+          prio,
+          newProject
+        );
       }
     });
   },

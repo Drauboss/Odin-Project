@@ -51,7 +51,7 @@ class TodoElement {
 
   todoChecked = false;
   checkTodo() {
-    this.checkTodo = !this.checkTodo;
+    this.todoChecked = !this.todoChecked;
   }
 }
 

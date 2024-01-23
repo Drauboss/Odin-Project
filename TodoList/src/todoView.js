@@ -76,6 +76,7 @@ const todoView = {
 
       const todoListProjectTitle_dom = document.createElement("h2");
       todoListProjectTitle_dom.textContent = todoListProject.projectName;
+      todoListProjectTitle_dom.classList.add("todo-list-project-title");
       todoListProject_dom.appendChild(todoListProjectTitle_dom);
 
       this.renderTodoElements(todoListProject);
