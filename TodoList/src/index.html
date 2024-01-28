@@ -16,18 +16,41 @@
       <!-- Modal content -->
       <div class="modal-content">
         <span class="close">&times;</span>
-        <form id="form">
-          <input type="text" id="title" placeholder="Add a new task" />
-          <input type="text" id="description" placeholder="Description" />
-          <div id="priority">
-            <input type="radio" name="priority" value="0" id="priorityLow" />
-            <label for="priorityLow">Low</label>
-            <input type="radio" name="priority" value="1" id="priorityMedium" />
-            <label for="priorityMedium">Medium</label>
-            <input type="radio" name="priority" value="2" id="priorityHigh" />
-            <label for="priorityHigh">High</label>
+        <form class="form" id="form">
+          <div class="form-group">
+            <label for="title">Title:</label>
+            <input type="text" id="title" placeholder="Add a new task" />
           </div>
-          <input type="date" id="dueDate" />
+          <div class="form-group">
+            <label for="description">Description:</label>
+            <input type="text" id="description" placeholder="Description" />
+          </div>
+          <div class="form-group" id="priority">
+            <label>Priority:</label>
+            <div class="priority">
+              <input
+                type="radio"
+                name="priority"
+                value="0"
+                id="priorityLow"
+                checked
+              />
+              <label for="priorityLow">Low</label>
+              <input
+                type="radio"
+                name="priority"
+                value="1"
+                id="priorityMedium"
+              />
+              <label for="priorityMedium">Medium</label>
+              <input type="radio" name="priority" value="2" id="priorityHigh" />
+              <label for="priorityHigh">High</label>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="dueDate">Due Date:</label>
+            <input type="date" id="dueDate" />
+          </div>
           <button type="submit" id="submit">Add</button>
         </form>
       </div>
