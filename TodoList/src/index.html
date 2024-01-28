@@ -4,6 +4,33 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Todo List</title>
+    <!-- Other head elements -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+    />
   </head>
-  <body></body>
+  <body>
+    <!-- The Modal -->
+    <div id="myModal" class="modal">
+      <!-- Modal content -->
+      <div class="modal-content">
+        <span class="close">&times;</span>
+        <form id="form">
+          <input type="text" id="title" placeholder="Add a new task" />
+          <input type="text" id="description" placeholder="Description" />
+          <div id="priority">
+            <input type="radio" name="priority" value="0" id="priorityLow" />
+            <label for="priorityLow">Low</label>
+            <input type="radio" name="priority" value="1" id="priorityMedium" />
+            <label for="priorityMedium">Medium</label>
+            <input type="radio" name="priority" value="2" id="priorityHigh" />
+            <label for="priorityHigh">High</label>
+          </div>
+          <input type="date" id="dueDate" />
+          <button type="submit" id="submit">Add</button>
+        </form>
+      </div>
+    </div>
+  </body>
 </html>

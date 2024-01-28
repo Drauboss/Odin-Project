@@ -41,15 +41,40 @@ class TodoList {
     return this.todoListProjects;
   }
 }
+
+/**
+ * Represents a todo element.
+ * @class TodoElement
+ * @memberof todoModel
+ * @param {string} title
+ * @param {string} description
+ * @param {date} dueDate
+ * @param {int} priority
+ * @property {string} title
+ * @property {string} description
+ * @property {string} dueDate
+ * @property {string} priority
+ * @property {boolean} todoChecked
+ * @description Represents a todo element.
+ *
+ */
 class TodoElement {
   constructor(title, description, dueDate, priority) {
     this.title = title;
     this.description = description;
     this.dueDate = dueDate;
-    this.priority = priority;
+    this.priority = this.priorityList[priority];
   }
 
+  priorityList = ["Low", "Medium", "High"];
+
   todoChecked = false;
+
+  toDoProject;
+
+  /**
+   * Toggles the todoChecked property.
+   */
   checkTodo() {
     this.todoChecked = !this.todoChecked;
   }
@@ -114,6 +139,7 @@ const todoModel = {
   createTodoListProject(projectName) {
     const todoListProject = new TodoListProject(projectName);
     this.todoList.addTodoProject(todoListProject);
+    console.log("Creating todo list project: " + projectName);
     return todoListProject;
   },
   deleteTodoListProject() {},
@@ -124,7 +150,7 @@ const todoModel = {
    * @param {string} title
    * @param {string} description
    * @param {string} dueDate
-   * @param {string} priority
+   * @param {int} priority
    * @param {TodoListProject} project
    * @memberof todoModel
    * @description Creates a todo element and adds it to the todo list project.
@@ -133,11 +159,24 @@ const todoModel = {
    */
   createTodoElement(title, description, dueDate, priority, project) {
     const todoElement = new TodoElement(title, description, dueDate, priority);
+    todoElement.toDoProject = project;
 
     this.addTodoToProject(todoElement, project);
+    console.log("Todo created: ", {
+      title,
+      description,
+      dueDate,
+      priority,
+      project,
+    });
     return todoElement;
   },
-  deleteTodoElement() {},
+  deleteTodoElement(todoElement) {
+    const todoListProject = todoElement.toDoProject;
+    const todoListElements = todoListProject.todoElements;
+    const index = todoListElements.indexOf(todoElement);
+    todoListElements.splice(index, 1);
+  },
   changeTodoElement() {},
 
   /**
