@@ -84,6 +84,13 @@ body {
   color: #000;
 }
 
+#player1-name:-webkit-autofill,
+#player1-name:-webkit-autofill:hover,
+#player1-name:-webkit-autofill:focus,
+#player1-name:-webkit-autofill:active {
+  -webkit-box-shadow: 0 0 0 30px #2196f3 inset !important;
+}
+
 #player2-name {
   margin-bottom: 20px;
   border: none;
@@ -91,6 +98,13 @@ body {
   border-radius: 5px;
   background-color: #fa4343;
   color: #000;
+}
+
+#player2-name:-webkit-autofill,
+#player2-name:-webkit-autofill:hover,
+#player2-name:-webkit-autofill:focus,
+#player2-name:-webkit-autofill:active {
+  -webkit-box-shadow: 0 0 0 30px #fa4343 inset !important;
 }
 
 .submitButton {
