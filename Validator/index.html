@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <form id="form" novalidate>
+      <h2>Enter your data</h2>
+      <ul>
+        <li>
+          <label for="email">Email address:</label>
+          <input type="email" name="email" id="email" minlength="5" required />
+          <span id="email-error" class="error"></span>
+          <span class="errorText">Wrong Email input</span>
+        </li>
+        <li>
+          <label for="country">Country:</label>
+          <input list="countries" id="country" name="country" required />
+          <datalist id="countries"> </datalist>
+
+          <span id="country-error" class="error"></span>
+          <span class="errorText">Wrong country input</span>
+        </li>
+        <li>
+          <label for="zip">Zip code:</label>
+          <input type="text" id="zip" required />
+          <span id="zip-error" class="error"></span>
+          <span class="errorText">Wrong Email input</span>
+        </li>
+        <li>
+          <label for="password">Password:</label>
+          <input type="password" id="password" required />
+          <span id="password-error" class="error"></span>
+          <span class="errorText"></span>
+        </li>
+        <li>
+          <label for="confirm">Confirm password:</label>
+          <input type="password" id="password-confirm" required />
+          <span id="password-confirm-error" class="error"></span>
+          <div class="errorText"></div>
+        </li>
+        <input type="submit" value="Submit" />
+      </ul>
+    </form>
+    <script defer src="./script.js"></script>
+  </body>
+</html>

@@ -1,0 +1,150 @@
+:root {
+  --color: #f80000;
+}
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+  margin: 0;
+  padding: 0;
+}
+
+h1 {
+  background-color: #333;
+  color: #fff;
+  padding: 10px 0;
+  text-align: center;
+  margin: 0;
+}
+
+h2 {
+  margin: 0;
+  padding: 10px 0;
+  text-align: center;
+}
+
+ul {
+  list-style: none;
+  padding: 20px;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+ul li {
+  background-color: #ffffff;
+  margin-bottom: 10px;
+  padding: 10px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+ul li a {
+  text-decoration: none;
+  color: #333;
+}
+
+ul li a:hover {
+  color: #888;
+}
+
+input:valid {
+  border: 1px solid green;
+}
+
+input:invalid {
+  border: 1px solid red;
+}
+
+.error {
+  color: rgb(255, 255, 255);
+  font-size: 16px;
+  display: inline-block;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  text-align: center;
+  line-height: 20px;
+}
+
+.errorText {
+  padding: 10px;
+  border-radius: 5px;
+  color: #000000;
+  margin-top: 5px;
+  display: none;
+  padding-bottom: 0;
+}
+
+.hidden {
+  display: none;
+}
+
+.passwordConditions {
+  padding-bottom: 0;
+}
+
+.passwordConditions li {
+  background-color: red;
+  color: white;
+}
+
+#password-error + .errorText {
+  display: block;
+  background-color: rgb(255, 255, 255);
+  width: 0;
+  height: 0;
+  padding: 0;
+  margin: 0;
+  border-radius: 0;
+  border: 0;
+}
+
+input[type="submit"] {
+  background-color: #333;
+  color: #fff;
+  border: 0;
+  padding: 10px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+input[type="submit"]:hover {
+  background-color: #888;
+  transform: translateY(1px);
+  animation: funnyAnimation 2s infinite;
+}
+
+@keyframes funnyAnimation {
+  0% {
+    transform: rotate(0deg);
+  }
+  25% {
+    transform: rotate(10deg);
+  }
+  50% {
+    transform: rotate(-10deg);
+  }
+  75% {
+    transform: rotate(10deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
+@keyframes backgroundAnimation {
+  0% {
+    background-color: #f4f4f4;
+  }
+  25% {
+    background-color: var(--color);
+  }
+  100% {
+    background-color: #f4f4f4;
+  }
+}
+
+.animate {
+  animation-name: backgroundAnimation;
+  animation-duration: 1s;
+  animation-iteration-count: normal;
+}
