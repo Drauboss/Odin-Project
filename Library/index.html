@@ -5,37 +5,39 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <link rel="stylesheet" href="./style.css" />
-    <link rel="stylesheet" href="https://cdn.materialdesignicons.com/5.4.55/css/materialdesignicons.min.css">
+    <link
+      rel="stylesheet"
+      href="https://cdn.materialdesignicons.com/5.4.55/css/materialdesignicons.min.css"
+    />
   </head>
   <body>
     <div>
-        <h1>Library</h1>
-        <form id="form">
-            <input type="text" id="title" placeholder="Title" />
-            <input type="text" id="author" placeholder="Author" />
-            <input type="number" id="pages" placeholder="Pages" />
-            <input type="checkbox" id="read" name="read" class="styled-checkbox">
-            <label for="read">Read</label>
-            <button onclick="addBookToLibrary()" type="button" >Add Book</button>
+      <h1>Library</h1>
+      <form id="form" onsubmit="addBookToLibrary(event)">
+        <input type="text" id="title" placeholder="Title" required />
+        <input type="text" id="author" placeholder="Author" required />
+        <input type="number" id="pages" placeholder="Pages" required />
+        <input type="checkbox" id="read" name="read" class="styled-checkbox" />
+        <label for="read">Read</label>
+        <input type="submit" value="Add Book" />
+      </form>
     </div>
     <div id="book-list">
-        <h2>Book List</h2>
-        <table>
-            <thead>
-                <tr>
-                    <th>Title</th>
-                    <th>Author</th>
-                    <th>Pages</th>
-                    <th>Read</th>
-                    <th>Delete</th>
-                </tr>
-            </thead>
-            <tbody id="book-list-body">
-
-            </tbody>
-        </table>
+      <h2>Book List</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Title</th>
+            <th>Author</th>
+            <th>Pages</th>
+            <th>Read</th>
+            <th>Delete</th>
+          </tr>
+        </thead>
+        <tbody id="book-list-body"></tbody>
+      </table>
     </div>
-    
+
     <script src="./index.js"></script>
   </body>
 </html>

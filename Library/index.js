@@ -38,7 +38,8 @@ const tableBody = document.getElementById("book-list-body");
 
 refreshBooks();
 
-function addBookToLibrary() {
+function addBookToLibrary(event) {
+  event.preventDefault();
   const newBook = new Book(
     title.value,
     author.value,

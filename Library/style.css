@@ -1,6 +1,6 @@
 body {
   font-family: Arial, sans-serif;
-  margin: 0;
+  margin: 5px;
   padding: 0;
   background-color: #f4f4f4;
 }
@@ -101,4 +101,9 @@ th {
     inset 0px -15px 10px -12px rgba(0, 0, 0, 0.05),
     inset 15px 10px 20px rgba(255, 255, 255, 0.1);
   color: #99a1a7;
+}
+
+#book-list {
+  min-width: 100px;
+  margin: auto;
 }
