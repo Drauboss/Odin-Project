@@ -1,14 +1,15 @@
 const img = document.querySelector("img");
 const input = document.querySelector("input");
 
-function getNewImage(searchTerm) {
-  fetch(
+async function getNewImage(searchTerm) {
+  const response = await fetch(
     `https://api.giphy.com/v1/gifs/translate?api_key=API_KEY&s=${searchTerm}`,
     {
       mode: "cors",
     }
-  )
-    .then((response) => response.json())
+  );
+  response
+    .json()
     .then((response) => {
       console.log(response);
       if (response.data.length === 0) {
