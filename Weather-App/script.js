@@ -7,7 +7,6 @@ const baseURL = "https://api.weatherapi.com/v1/current.json";
  * @returns {Promise<{CurrentTemp: number, City: string, Country: string, Condition: string, Icon: string, Humidity: number, Wind: number}>}
  */
 async function getWeather(cityName) {
-  showLoadingIcon();
   const response = await fetch(
     baseURL + `?key=${API_KEY}&q=${cityName}&lang=de`,
     {
@@ -45,7 +44,11 @@ async function displayWeather(cityName) {
     document.getElementById("error").innerText = "";
     document.getElementById("weather").style.display = "none";
 
+    let loadingTimeout = setTimeout(showLoadingIcon, 250); // Set a timeout to show the loading icon after 1 second
+
     const data = await getWeather(cityName);
+
+    clearTimeout(loadingTimeout); // Clear the timeout if the await operation has finished
     hideLoadingIcon();
 
     document.getElementById("weather").style.display = "block";
@@ -59,6 +62,7 @@ async function displayWeather(cityName) {
     document.getElementById("wind").innerText = data.Wind + " km/h";
   } catch (error) {
     console.error(error);
+    clearTimeout(loadingTimeout); // Clear the timeout if an error occurred
     hideLoadingIcon();
     document.getElementById("error").innerText = error.message;
   }
