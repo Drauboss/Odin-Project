@@ -1,5 +1,5 @@
 const API_KEY = "039b8b67b0a948c998b190227240302";
-const baseURL = "http://api.weatherapi.com/v1/current.json";
+const baseURL = "https://api.weatherapi.com/v1/current.json";
 
 /**
  *
