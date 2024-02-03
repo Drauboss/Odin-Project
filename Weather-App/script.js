@@ -15,6 +15,7 @@ async function getWeather(cityName) {
     }
   );
   const data = await response.json();
+  console.log(data);
   if (data.error) {
     hideLoadingIcon();
     throw new Error(data.error.message);
