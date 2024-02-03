@@ -33,7 +33,7 @@ async function getWeather(cityName) {
 }
 
 function showLoadingIcon() {
-  document.getElementById("loading-icon").style.display = "block";
+  document.getElementById("loading-icon").style.display = "inline-block";
 }
 function hideLoadingIcon() {
   document.getElementById("loading-icon").style.display = "none";
