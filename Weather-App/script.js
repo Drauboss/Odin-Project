@@ -9,7 +9,10 @@ const baseURL = "http://api.weatherapi.com/v1/current.json";
 async function getWeather(cityName) {
   showLoadingIcon();
   const response = await fetch(
-    baseURL + `?key=${API_KEY}&q=${cityName}&lang=de`
+    baseURL + `?key=${API_KEY}&q=${cityName}&lang=de`,
+    {
+      mode: "cors",
+    }
   );
   const data = await response.json();
   if (data.error) {
