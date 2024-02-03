@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Weather App</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="header">
+      <h1>Weather App</h1>
+    </div>
+
+    <div class="searchBar">
+      <form
+        id="search-form"
+        onsubmit="event.preventDefault(); displayWeather(document.querySelector('.search').value)"
+      >
+        <input
+          type="text"
+          class="search"
+          placeholder="Search for a city..."
+          required
+        />
+        <button type="submit" class="search-btn">Search</button>
+      </form>
+    </div>
+    <div class="content">
+      <div id="loading-icon"></div>
+      <div id="error"></div>
+      <div class="weather" id="weather">
+        <h2 style="text-align: center">Weather</h2>
+        <label class="info"
+          >City:
+          <div id="city"></div>
+        </label>
+
+        <label class="info"
+          >Country:
+          <div id="country"></div>
+        </label>
+
+        <label class="info"
+          >Temperature:
+          <div id="temp"></div>
+        </label>
+
+        <label class="info"
+          >Condition:
+          <div class="condition" style="display: flex; align-items: center">
+            <div id="condition"></div>
+            <img src="" alt="" id="icon" />
+          </div>
+        </label>
+
+        <label class="info"
+          >Humidity:
+          <div id="humidity"></div>
+        </label>
+
+        <label class="info"
+          >Wind:
+          <div id="wind"></div>
+        </label>
+      </div>
+    </div>
+
+    <footer>
+      <h2>Powered by:</h2>
+      <a href="https://www.weatherapi.com/" title="Free Weather API"
+        ><img
+          src="//cdn.weatherapi.com/v4/images/weatherapi_logo.png"
+          alt="Weather data by WeatherAPI.com"
+          border="0"
+      /></a>
+    </footer>
+    <script src="script.js"></script>
+  </body>
+</html>
