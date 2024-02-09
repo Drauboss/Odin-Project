@@ -59,7 +59,7 @@ function caesarCipher(string, shiftFactor) {
   }
 
   /**
-   * @type {string[]}
+   * @type {Array.<string>}
    */
   const shiftedAlphabet = [];
   for (let index = 0; index < 26; index++) {
