@@ -1,3 +1,5 @@
+// @ts-check
+
 /**
  *
  * @param {String} string
@@ -48,16 +50,27 @@ function caesarCipher(string, shiftFactor) {
   const words = string.replace(/\p{P}/gu, "").split(" ");
   console.log(words);
 
-  const alphabet = [26];
+  /**
+   * @type {string[]}
+   */
+  const alphabet = [];
   for (let index = 0; index < 26; index++) {
     alphabet[index] = String.fromCharCode(65 + index);
   }
 
+  /**
+   * @type {string[]}
+   */
   const shiftedAlphabet = [];
   for (let index = 0; index < 26; index++) {
     shiftedAlphabet[index] = alphabet[(index + shiftFactor + 26) % 26];
   }
 
+  /**
+   *
+   * @param {String} char
+   * @returns
+   */
   function getIndexOfChar(char) {
     return alphabet.findIndex((element) => element === char);
   }
@@ -96,7 +109,9 @@ function caesarCipher(string, shiftFactor) {
 
 /**
  *
- * @param {Array} array
+ * @param {number[]} array
+ * @returns {{average: number, min: number, max: number, length: number}}
+ *
  */
 function analyzeArray(array) {
   const average =
@@ -109,7 +124,17 @@ function analyzeArray(array) {
 
   console.log(max);
 
-  return { average: average, min: min, max: max, length: array.length };
+  /**
+   * @type {{average: number, min: number, max: number, length: number}{}}
+   */
+  const returnObject = {
+    average: average,
+    min: min,
+    max: max,
+    length: array.length,
+  };
+
+  return returnObject;
 }
 
 module.exports = {
