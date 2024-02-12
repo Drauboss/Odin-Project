@@ -85,6 +85,10 @@ test("test receiveAttack on empty field", () => {
   expect(gameBoard.getShips()[0].ship.isSunk()).toBe(false);
 
   expect(gameBoard.getMisses()).toEqual([[9, 9]]);
+
+  expect(() => {
+    gameBoard.receiveAttack([9, 9]);
+  }).toThrow(new Error("Already shot here"));
 });
 
 test("test allSunk", () => {

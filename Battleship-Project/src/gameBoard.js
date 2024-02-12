@@ -15,7 +15,7 @@ function createGameBoard(player) {
             isSunk: [Function: isSunk],
             getLength: [Function: getLength]
         },
-   *     shipCoords: [[Array], [Array], [Array]],
+   *     shipCoords: [[0, 1], [0,2], [0,3]],
    *   },
    * ]
    */
@@ -65,6 +65,10 @@ function createGameBoard(player) {
 
   function receiveAttack(coords) {
     let [x, y] = coords;
+    if (isCoordInMissesOrHits(coords)) {
+      throw new Error("Already shot here");
+    }
+
     let ship = ships.find((ship) =>
       ship.shipCoords.some(
         (shipCoord) => shipCoord[0] === x && shipCoord[1] === y
@@ -78,6 +82,16 @@ function createGameBoard(player) {
     }
 
     console.log(ships);
+  }
+  function isCoordInMissesOrHits(coords) {
+    return (
+      misses.some(
+        (missCoord) => missCoord[0] === coords[0] && missCoord[1] === coords[1]
+      ) ||
+      hits.some(
+        (hitCoord) => hitCoord[0] === coords[0] && hitCoord[1] === coords[1]
+      )
+    );
   }
 
   function allSunk() {
