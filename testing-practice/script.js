@@ -125,7 +125,7 @@ function analyzeArray(array) {
   console.log(max);
 
   /**
-   * @type {{average: number, min: number, max: number, length: number}{}}
+   * @type {{average: number, min: number, max: number, length: number}}
    */
   const returnObject = {
     average: average,
