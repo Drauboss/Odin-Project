@@ -3,6 +3,8 @@ const createGameBoard = require("./gameBoard");
 const createShip = require("./ship");
 const domHandler = require("./domHandler");
 
+import "./style.css";
+
 /**
  * @type {createShip} ship1
  */
@@ -40,4 +42,4 @@ gameBoard2.placeShip(ship2, [4, 5], false);
 
 let currentPlayer = Player1;
 console.log("ds");
-domHandler.renderBoard(gameBoard1, document.getElementById("playerBoard"));
+domHandler().renderBoard(gameBoard1, document.getElementById("playerBoard"));

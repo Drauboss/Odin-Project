@@ -1,0 +1,25 @@
+.body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  background-color: #c54e4e;
+}
+
+.board {
+  display: grid;
+  grid-template-columns: repeat(9, 1fr);
+  gap: 1px;
+  width: 100%;
+  height: 100%;
+}
+
+.cell {
+  background-color: #ccc;
+  border: 1px solid #999;
+  width: 100%;
+  height: 100%;
+}
