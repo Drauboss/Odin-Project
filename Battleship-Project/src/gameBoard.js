@@ -1,4 +1,4 @@
-function createGameBoard(player) {
+function createGameBoard() {
   let misses = [];
 
   /**
@@ -42,8 +42,6 @@ function createGameBoard(player) {
     }
 
     ships = ships.concat({ ship, shipCoords });
-
-    console.log(ships);
   }
 
   function checkShipPlacement(coords) {
@@ -77,11 +75,11 @@ function createGameBoard(player) {
     if (ship) {
       ship.ship.hit();
       hits.push(coords);
+      return "hit";
     } else {
       misses.push(coords);
+      return "miss";
     }
-
-    console.log(ships);
   }
   function isCoordInMissesOrHits(coords) {
     return (
